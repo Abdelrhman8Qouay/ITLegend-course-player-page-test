@@ -3,18 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details (Starting..)</title>
 </head>
 
 <body>
-    <main>
+    <main class="container">
         <!-- ChainLinks -->
         <div class="chain-links">
             <span>Home</span>
-            <div class="oper">></div>
+            <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
             <span>Courses</span>
-            <div class="oper">></div>
+            <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
             <span class="current">Courses</span>
         </div>
 
@@ -24,11 +25,29 @@
         <!-- Course Player -->
         <div class="course-player">
             <div class="player-video">
-                <video src="" poster="" preload="none"></video>
-                <button type="button" class="play-button"></button>
-                <div class="controllers"></div>
+                <video src="/assets/videos/html-in-100-seconds.mp4" poster="/assets/videos/html-in-100-seconds.png"
+                    preload="none"></video>
+                <button type="button" class="play-button">▶</button>
+                <div class="controllers">
+                    <div class="controls-container">
+                        <!-- Play/Pause Button -->
+                        <div id="play-btn" class="play-btn-vid">⏯️</div>
+
+                        <!-- Volume Button -->
+                        <div id="volume-btn" class="volume-btn-vid">🔊</div>
+
+                        <!-- Volume Slider -->
+                        <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="any" />
+
+                        <div class="time-container">
+                            <span id="time-display">00:00</span>
+
+                            <!-- Fullscreen Button -->
+                            <div id="fullscreen-btn" class="full-btn-vid">⛶</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="ava-buttons"></div>
         </div>
 
         <!-- Course Materials -->
@@ -45,19 +64,106 @@
             </div>
         </div>
 
-        <!-- ================================= Title Parts (Topics) ================================= -->
+        <!-- Title Parts (Topics) -->
         <div class="title-comp">Topics for This Course</div>
 
         <!-- Student Progress -->
         <div class="course-progress">
             <div class="ind">You</div>
-            <div class="progress"></div>
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
             <div class="val">63%</div>
         </div>
 
-        <!-- ================================= Title Parts (Comments) ================================= -->
-        <div class="title-comp">Topics for This Course</div>
+        <!-- Available Courses & Resources -->
+        <div class="available-resources">
+            <div class="collapsible">
+                <!-- Header Section -->
+                <button class="collapsible__header">
+                    <div>
+                        <h3 class="collapsible__title">Week 1-4</h3>
+                        <p class="collapsible__subtitle">
+                            Advanced story telling techniques for writers: <br />
+                            Personas, Characters & Plots
+                        </p>
+                    </div>
+                    <span class="collapsible__icon">+</span>
+                </button>
+
+                <!-- Collapsible Content -->
+                <div class="collapsible__content">
+                    <ul class="collapsible__list">
+                        <li class="collapsible__item locked">
+                            <span class="collapsible__item-icon">📄</span>
+                            Introduction
+                            <span class="collapsible__lock">🔒</span>
+                        </li>
+                        <li class="collapsible__item locked">
+                            <span class="collapsible__item-icon">📄</span>
+                            Course Overview
+                            <span class="collapsible__lock">🔒</span>
+                        </li>
+                        <li class="collapsible__item">
+                            <span class="collapsible__item-icon">📄</span>
+                            Course Overview
+                            <span class="collapsible__status">
+                                <span class="status-green">0 QUESTION</span>
+                                <span class="status-red">10 MINUTES</span>
+                            </span>
+                        </li>
+                        <li class="collapsible__item locked">
+                            <span class="collapsible__item-icon">📄</span>
+                            Course Exercise / Reference Files
+                            <span class="collapsible__lock">🔒</span>
+                        </li>
+                        <li class="collapsible__item locked">
+                            <span class="collapsible__item-icon">📄</span>
+                            Code Editor Installation (Optional if you have one)
+                            <span class="collapsible__lock">🔒</span>
+                        </li>
+                        <li class="collapsible__item">
+                            <span class="collapsible__item-icon">📄</span>
+                            Embedding PHP in HTML
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Title Parts (Comments) -->
+        <div class="title-comp">Comments</div>
+
+        <!-- Comments Part -->
+        <div class="comments-part">
+            <!-- All Comments -->
+            <div class="comments">
+                <div class="comment">
+                    <div class="avatar">
+                        <img src="/assets/images/avatars/avatar1.jpg" alt="user avatar">
+                    </div>
+                    <div class="content">
+                        <div class="name">Student Name Goes Here</div>
+                        <span class="date">Oct 1, 2021</span>
+                        <p>Lorem Aime set Emet, erehtae Adecture Adfkjdddfjdkj ajdf j jka jdf jka jdfkj kjfkjadfkjdksf
+                            jajk jdlk jalkdfd</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Write Comment -->
+            <div class="write">
+                <textarea name="write-comment" placeholder="Write a comment"></textarea>
+            </div>
+
+            <!-- Submit Review -->
+            <button type="button">Submit Review
+                <img src="/assets/icons/arrow-right.png" alt="">
+            </button>
+        </div>
     </main>
+
+    <script type="module" src="/script.ts"></script>
 </body>
 
 </html>
