@@ -1,0 +1,67 @@
+// 🔹 STUDENT PROGRESS
+.course-progress {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px 0;
+
+    .progress {
+        flex-grow: 1;
+        height: 5px;
+        background: #e0e0e0;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00ff80, #00ffaa);
+            border-radius: 5px;
+            transition: width 1.5s ease-in-out;
+        }
+    }
+
+    .ind {
+        position: absolute;
+        bottom: 25px;
+        left: 0;
+        transform: translateX(-50%);
+        background: #fff;
+        border: 1px solid #9E9E9E;
+        padding: 5px 5px;
+        font-size: 8px;
+        color: #007bff;
+        border-radius: 50%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: left 1.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #9E9E9E;
+        }
+    }
+
+    .val {
+        font-size: 10px;
+        color: #007bff;
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        transform: translateX(-50%);
+        transition: left 1.5s ease-in-out;
+    }
+}

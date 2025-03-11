@@ -3,139 +3,158 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/assets/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Course Details (Starting..)</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- <style type="text/tailwindcss">
+        .chain-links {
+            @apply flex;
+        }
+      </style> -->
 </head>
 
 <body>
+
     <main class="container">
-        <!-- ChainLinks -->
-        <div class="chain-links">
-            <span>Home</span>
-            <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
-            <span>Courses</span>
-            <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
-            <span class="current">Courses</span>
-        </div>
+        <div class="top-layout">
+            <div class="left">
+                <!-- ChainLinks -->
+                <div class="chain-links">
+                    <span>Home</span>
+                    <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
+                    <span>Courses</span>
+                    <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
+                    <span class="current">Courses</span>
+                </div>
 
-        <!-- Course Name -->
-        <div class="course-name">Starting SEO as your Home</div>
+                <!-- Course Name -->
+                <div class="course-name">Starting SEO as your Home</div>
 
-        <!-- Course Player -->
-        <div class="course-player">
-            <div class="player-video">
-                <video src="/assets/videos/html-in-100-seconds.mp4" poster="/assets/videos/html-in-100-seconds.png"
-                    preload="none"></video>
-                <button type="button" class="play-button">▶</button>
-                <div class="controllers">
-                    <div class="controls-container">
-                        <!-- Play/Pause Button -->
-                        <div id="play-btn" class="play-btn-vid">⏯️</div>
+                <!-- Course Player -->
+                <div class="course-player">
+                    <div class="player-video">
+                        <div class="screen">
+                            <video src="/assets/videos/html-in-100-seconds.mp4"
+                                poster="/assets/videos/html-in-100-seconds.png" preload="none"></video>
+                            <div class="cover"></div>
+                        </div>
+                        <button type="button" class="play-button" id="play-float">▶</button>
+                        <div class="controllers">
+                            <div class="controls-container">
+                                <!-- Play/Pause Button -->
+                                <div id="play-btn" class="play-btn-vid">⏯️</div>
 
-                        <!-- Volume Button -->
-                        <div id="volume-btn" class="volume-btn-vid">🔊</div>
+                                <!-- Volume Button -->
+                                <div id="volume-btn" class="volume-btn-vid">🔊</div>
 
-                        <!-- Volume Slider -->
-                        <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="any" />
+                                <!-- Volume Slider -->
+                                <input type="range" id="volume-slider" class="volume-slider" min="0" max="1"
+                                    step="0.1" />
 
-                        <div class="time-container">
-                            <span id="time-display">00:00</span>
+                                <div class="time-container">
+                                    <span id="time-display">00:00</span>
 
-                            <!-- Fullscreen Button -->
-                            <div id="fullscreen-btn" class="full-btn-vid">⛶</div>
+                                    <!-- Fullscreen Button -->
+                                    <div id="fullscreen-btn" class="full-btn-vid">⛶</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Materials -->
+                <div class="materials">
+                    <div class="title-comp">Course Materials</div>
+                    <div class="details">
+                        <div class="info">
+                            <div class="left">
+                                <div class="ico">
+                                    <img src="./assets/icons/duration.png">
+                                </div>
+                                <div class="title">Duration:</div>
+                            </div>
+                            <div class="val">3 Weeks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <!-- Student Progress -->
+                <div class="course-progress">
+                    <div class="title-comp">Topics for This Course</div>
+                    <div class="ind">You</div>
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="val">0%</div>
+                </div>
+
+                <!-- Available Courses & Resources -->
+                <div class="available-resources">
+                    <div class="collapsible">
+                        <!-- Header Section -->
+                        <button class="collapsible__header">
+                            <div>
+                                <h3 class="collapsible__title">Week 1-4</h3>
+                                <p class="collapsible__subtitle">
+                                    Advanced story telling techniques for writers: <br />
+                                    Personas, Characters & Plots
+                                </p>
+                            </div>
+                            <span class="collapsible__icon">+</span>
+                        </button>
+
+                        <!-- Collapsible Content -->
+                        <div class="collapsible__content">
+                            <ul class="collapsible__list">
+                                <li class="collapsible__item locked">
+                                    <span class="collapsible__item-icon">📄</span>
+                                    Introduction
+                                    <span class="collapsible__lock">🔒</span>
+                                </li>
+                                <li class="collapsible__item locked">
+                                    <span class="collapsible__item-icon">📄</span>
+                                    Course Overview
+                                    <span class="collapsible__lock">🔒</span>
+                                </li>
+                                <li class="collapsible__item">
+                                    <span class="collapsible__item-icon">📄</span>
+                                    Course Overview
+                                    <span class="collapsible__status">
+                                        <span class="status-green">0 QUESTION</span>
+                                        <span class="status-red">10 MINUTES</span>
+                                    </span>
+                                </li>
+                                <li class="collapsible__item locked">
+                                    <span class="collapsible__item-icon">📄</span>
+                                    Course Exercise / Reference Files
+                                    <span class="collapsible__lock">🔒</span>
+                                </li>
+                                <li class="collapsible__item locked">
+                                    <span class="collapsible__item-icon">📄</span>
+                                    Code Editor Installation (Optional if you have one)
+                                    <span class="collapsible__lock">🔒</span>
+                                </li>
+                                <li class="collapsible__item">
+                                    <span class="collapsible__item-icon">📄</span>
+                                    Embedding PHP in HTML
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Course Materials -->
-        <div class="materials">
-            <h2>Course Materials</h2>
-            <div class="details">
-                <div class="info">
-                    <div class="ico">
-                        <img src="./assets/icons/duration.png">
-                    </div>
-                    <div class="title">Duration:</div>
-                    <div class="val">3 Weeks</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Title Parts (Topics) -->
-        <div class="title-comp">Topics for This Course</div>
-
-        <!-- Student Progress -->
-        <div class="course-progress">
-            <div class="ind">You</div>
-            <div class="progress">
-                <div class="progress-bar"></div>
-            </div>
-            <div class="val">63%</div>
-        </div>
-
-        <!-- Available Courses & Resources -->
-        <div class="available-resources">
-            <div class="collapsible">
-                <!-- Header Section -->
-                <button class="collapsible__header">
-                    <div>
-                        <h3 class="collapsible__title">Week 1-4</h3>
-                        <p class="collapsible__subtitle">
-                            Advanced story telling techniques for writers: <br />
-                            Personas, Characters & Plots
-                        </p>
-                    </div>
-                    <span class="collapsible__icon">+</span>
-                </button>
-
-                <!-- Collapsible Content -->
-                <div class="collapsible__content">
-                    <ul class="collapsible__list">
-                        <li class="collapsible__item locked">
-                            <span class="collapsible__item-icon">📄</span>
-                            Introduction
-                            <span class="collapsible__lock">🔒</span>
-                        </li>
-                        <li class="collapsible__item locked">
-                            <span class="collapsible__item-icon">📄</span>
-                            Course Overview
-                            <span class="collapsible__lock">🔒</span>
-                        </li>
-                        <li class="collapsible__item">
-                            <span class="collapsible__item-icon">📄</span>
-                            Course Overview
-                            <span class="collapsible__status">
-                                <span class="status-green">0 QUESTION</span>
-                                <span class="status-red">10 MINUTES</span>
-                            </span>
-                        </li>
-                        <li class="collapsible__item locked">
-                            <span class="collapsible__item-icon">📄</span>
-                            Course Exercise / Reference Files
-                            <span class="collapsible__lock">🔒</span>
-                        </li>
-                        <li class="collapsible__item locked">
-                            <span class="collapsible__item-icon">📄</span>
-                            Code Editor Installation (Optional if you have one)
-                            <span class="collapsible__lock">🔒</span>
-                        </li>
-                        <li class="collapsible__item">
-                            <span class="collapsible__item-icon">📄</span>
-                            Embedding PHP in HTML
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Title Parts (Comments) -->
-        <div class="title-comp">Comments</div>
-
         <!-- Comments Part -->
         <div class="comments-part">
+            <div class="title-comp">Comments</div>
             <!-- All Comments -->
             <div class="comments">
                 <div class="comment">
@@ -158,12 +177,16 @@
 
             <!-- Submit Review -->
             <button type="button">Submit Review
-                <img src="/assets/icons/arrow-right.png" alt="">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined -->
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5" d="M20 12H4m11 5s5-3.682 5-5s-5-5-5-5" color="currentColor" />
+                </svg>
             </button>
         </div>
     </main>
 
-    <script type="module" src="/script.ts"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>

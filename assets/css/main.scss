@@ -4,7 +4,11 @@ $secondary-color: #6c757d;
 $bg-light: #f8f9fa;
 $text-dark: #212529;
 $text-light: #6c757d;
+$text-red: #e54860;
 $border-radius: 8px;
+$s-padding: 1.5em;
+
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
 @mixin flex-center($direction: row, $gap: 0) {
     display: flex;
@@ -17,6 +21,8 @@ $border-radius: 8px;
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+    font-size: clamp(0.5rem, 1.5vw, 1.2rem);
     box-sizing: border-box;
 }
 
@@ -26,11 +32,36 @@ body {
     background-color: $bg-light;
 }
 
+@import './components/course-player';
+@import './components/course-materials';
+@import './components/course-progress';
+@import './components/_available-resources.scss';
+@import './components/_comments-part.scss';
+
+
 // 🔹 CONTAINER & LAYOUT
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+
+    .top-layout {
+        // Keeps the order same on small/medium screens
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        // Change in the Large screens
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            gap: 1em;
+
+            .right {
+                flex: 1 0 35%;
+            }
+        }
+    }
+
 }
 
 // 🔹 CHAIN LINKS
@@ -38,10 +69,12 @@ body {
     display: flex;
     align-items: center;
 
-    content gap: 8px;
-    font-size: 12px;
-    color: $text-light;
-    margin-bottom: 20px;
+    content {
+        gap: 8px;
+        font-size: 12px;
+        color: $text-light;
+        margin-bottom: 20px;
+    }
 
     .oper {
         display: flex;
@@ -68,234 +101,9 @@ body {
     margin-bottom: 20px;
 }
 
-// 🔹 COURSE PLAYER
-.course-player {
-    background: white;
-    padding: 16px;
-    border-radius: $border-radius;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-
-    .player-video {
-        position: relative;
-        border-radius: $border-radius;
-        overflow: hidden;
-
-        video {
-            width: 100%;
-            border-radius: $border-radius;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
-
-        .controllers {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            transition: bottom 0.3s ease-in-out;
-
-            .controls-container {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px;
-
-                .play-btn-vid,
-                .volume-btn-vid,
-                .full-btn-vid {
-                    width: 19px;
-                    height: 19px;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    cursor: pointer;
-                }
-
-                .volume-slider {
-                    flex-grow: 1;
-                    appearance: none;
-                    background: #555;
-                    height: 4px;
-                    border-radius: 2px;
-                    cursor: pointer;
-                }
-
-                .time-container {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    color: white;
-                    font-size: 12px;
-                }
-            }
-        }
-    }
-}
-
-// 🔹 COURSE MATERIALS
-.materials {
-    background: white;
-    padding: 20px;
-    border-radius: $border-radius;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-
-    h2 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .details {
-        display: flex;
-        gap: 20px;
-
-        .info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-
-            .ico img {
-                width: 24px;
-                height: 24px;
-            }
-
-            .title {
-                font-size: 14px;
-                color: $text-light;
-            }
-
-            .val {
-                font-size: 14px;
-                font-weight: bold;
-            }
-        }
-    }
-}
-
 // 🔹 TITLE COMPONENT
 .title-comp {
-    font-size: 18px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-// 🔹 STUDENT PROGRESS
-.course-progress {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-
-    .ind {
-        font-size: 14px;
-        color: $text-light;
-    }
-
-    .progress {
-        flex-grow: 1;
-        height: 6px;
-        background: #e0e0e0;
-        border-radius: 3px;
-        overflow: hidden;
-
-        .progress-bar {
-            width: 63%;
-            height: 100%;
-            background: $primary-color;
-        }
-    }
-
-    .val {
-        font-size: 14px;
-        font-weight: bold;
-    }
-}
-
-// 🔹 COMMENTS SECTION
-.comments-part {
-    background: white;
-    padding: 20px;
-    border-radius: $border-radius;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    .comments {
-        .comment {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-
-            .avatar img {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-            }
-
-            .content {
-                flex: 1;
-
-                .name {
-                    font-weight: bold;
-                }
-
-                .date {
-                    font-size: 12px;
-                    color: $text-light;
-                }
-
-                p {
-                    margin-top: 5px;
-                    font-size: 14px;
-                    color: $text-dark;
-                }
-            }
-        }
-    }
-
-    .write {
-        margin-top: 20px;
-
-        textarea {
-            width: 100%;
-            height: 80px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: $border-radius;
-            resize: none;
-        }
-    }
-
-    button {
-        margin-top: 10px;
-        background: $primary-color;
-        color: white;
-        padding: 10px;
-        border-radius: $border-radius;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-
-        &:hover {
-            background: darken($primary-color, 10%);
-        }
-
-        img {
-            width: 16px;
-            height: 16px;
-            margin-left: 8px;
-        }
-    }
 }
