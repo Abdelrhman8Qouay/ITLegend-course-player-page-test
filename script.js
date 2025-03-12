@@ -28,8 +28,8 @@ function initializeVideoPlayer() {
     const loadVideo = (index) => {
         if (index >= 0 && index < videos.length) {
             const [src, poster, name] = videos[index];
-            videoEle.src = `/assets/videos/${src}`;
-            videoEle.poster = `/assets/videos/${poster}`;
+            videoEle.src = `./assets/videos/${src}`;
+            videoEle.poster = `./assets/videos/${poster}`;
             videoEle.load(); // Load the new video
             currentVideoIndex = index; // Update the current index
             courseName.innerHTML = name; // Change the course name dynamically
@@ -306,7 +306,7 @@ function initializeComments() {
 
             commentItem.innerHTML = `
                 <div class="avatar">
-                    <img src="/assets/images/avatars/${comment.avatar}" alt="user avatar">
+                    <img src="./assets/images/avatars/${comment.avatar}" alt="user avatar">
                 </div>
                 <div class="content">
                     <div class="name">${comment.name}</div>
@@ -402,7 +402,7 @@ function initializeLeaderboard() {
 
             leaderboardItem.innerHTML = `
                 <div class="avatar">
-                    <img src="/assets/images/avatars/${student.avatar}" alt="${student.name}">
+                    <img src="./assets/images/avatars/${student.avatar}" alt="${student.name}">
                 </div>
                 <div class="name">${student.name}</div>
                 <div class="score">${student.score}%</div>
