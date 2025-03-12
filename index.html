@@ -5,31 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Course Details (Starting..)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
+
+    <title>IT Legend | Course Details (Starting..)</title>
 
     <!-- CSS -->
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-    <!-- <style type="text/tailwindcss">
-        .chain-links {
-            @apply flex;
-        }
-      </style> -->
 </head>
 
 <body>
 
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="https://itlegend.net/home/index"><img src="/assets/logo.png"></a>
+            </div>
+        </div>
+    </header>
+
     <main class="container">
-        <div class="top-layout">
-            <div class="left">
+        <div class="main-layout">
+            <div class="head-left">
                 <!-- ChainLinks -->
                 <div class="chain-links">
                     <span>Home</span>
                     <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
                     <span>Courses</span>
                     <div class="oper"><img src="./assets/icons/arrow-right-chain.png"></div>
-                    <span class="current">Courses</span>
+                    <span class="current">Course Details</span>
                 </div>
 
                 <!-- Course Name -->
@@ -46,25 +56,49 @@
                         <button type="button" class="play-button" id="play-float">▶</button>
                         <div class="controllers">
                             <div class="controls-container">
-                                <!-- Play/Pause Button -->
-                                <div id="play-btn" class="play-btn-vid">⏯️</div>
+                                <div class="left-controller">
+                                    <!-- Play/Pause Button -->
+                                    <div id="play-btn" class="play-btn-vid">⏯️</div>
 
-                                <!-- Volume Button -->
-                                <div id="volume-btn" class="volume-btn-vid">🔊</div>
-
-                                <!-- Volume Slider -->
-                                <input type="range" id="volume-slider" class="volume-slider" min="0" max="1"
-                                    step="0.1" />
-
-                                <div class="time-container">
+                                    <!-- Vide Time -->
                                     <span id="time-display">00:00</span>
+                                </div>
+
+
+                                <div class="right-controller">
+                                    <!-- Volume Button -->
+                                    <div id="volume-btn" class="volume-btn-vid">🔊</div>
+                                    <!-- Volume Slider -->
+                                    <input type="range" id="volume-slider" class="volume-slider" min="0" max="1"
+                                        step="0.03" />
+
 
                                     <!-- Fullscreen Button -->
                                     <div id="fullscreen-btn" class="full-btn-vid">⛶</div>
                                 </div>
                             </div>
+                            <div class="below">
+                                <input type="range" id="progress-bar" class="progress-bar" min="0" max="100" step="0.1"
+                                    value="0" />
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Course Section Buttons -->
+                <div class="section-services">
+                    <button title="Curriculm" type="button" class="btn-sec">
+                        <img src="/assets/icons/options.png">
+                    </button>
+                    <button title="comments" type="button" class="btn-sec">
+                        <img src="/assets/icons/comment.png">
+                    </button>
+                    <button title="Ask a question" type="button" class="btn-sec">
+                        <img src="/assets/icons/ask.png">
+                    </button>
+                    <button title="Leaderboard" type="button" class="btn-sec">
+                        <img src="/assets/icons/leader.png">
+                    </button>
                 </div>
 
                 <!-- Course Materials -->
@@ -84,15 +118,17 @@
                 </div>
             </div>
 
-            <div class="right">
+            <div class="right-side">
                 <!-- Student Progress -->
                 <div class="course-progress">
                     <div class="title-comp">Topics for This Course</div>
-                    <div class="ind">You</div>
-                    <div class="progress">
-                        <div class="progress-bar"></div>
+                    <div class="process">
+                        <div class="ind">You</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="val">0%</div>
                     </div>
-                    <div class="val">0%</div>
                 </div>
 
                 <!-- Available Courses & Resources -->
@@ -100,93 +136,200 @@
                     <div class="collapsible">
                         <!-- Header Section -->
                         <button class="collapsible__header">
-                            <div>
+                            <div class="collapsible__header-top">
                                 <h3 class="collapsible__title">Week 1-4</h3>
-                                <p class="collapsible__subtitle">
-                                    Advanced story telling techniques for writers: <br />
-                                    Personas, Characters & Plots
-                                </p>
+                                <span class="collapsible__icon">+</span>
                             </div>
-                            <span class="collapsible__icon">+</span>
+                            <p class="collapsible__subtitle">
+                                Advanced story telling techniques for writers: <br />
+                                Personas, Characters & Plots
+                            </p>
                         </button>
 
                         <!-- Collapsible Content -->
                         <div class="collapsible__content">
                             <ul class="collapsible__list">
                                 <li class="collapsible__item locked">
-                                    <span class="collapsible__item-icon">📄</span>
-                                    Introduction
-                                    <span class="collapsible__lock">🔒</span>
+                                    <div class="collapsible__item-left">
+                                        <span class="collapsible__item-icon">📄</span>
+                                        Introduction
+                                    </div>
+                                    <img src="./assets/icons/lock.png">
                                 </li>
                                 <li class="collapsible__item locked">
-                                    <span class="collapsible__item-icon">📄</span>
-                                    Course Overview
-                                    <span class="collapsible__lock">🔒</span>
+                                    <div class="collapsible__item-left">
+                                        <span class="collapsible__item-icon">📄</span>
+                                        Course Overview
+                                    </div>
+                                    <img src="./assets/icons/lock.png">
                                 </li>
-                                <li class="collapsible__item">
-                                    <span class="collapsible__item-icon">📄</span>
-                                    Course Overview
+                                <li class="collapsible__item" id="CourseExamView">
+                                    <div class="collapsible__item-left">
+                                        <span class="collapsible__item-icon">📄</span>
+                                        Course Overview
+                                    </div>
                                     <span class="collapsible__status">
                                         <span class="status-green">0 QUESTION</span>
                                         <span class="status-red">10 MINUTES</span>
                                     </span>
                                 </li>
                                 <li class="collapsible__item locked">
-                                    <span class="collapsible__item-icon">📄</span>
-                                    Course Exercise / Reference Files
-                                    <span class="collapsible__lock">🔒</span>
+                                    <div class="collapsible__item-left">
+                                        <span class="collapsible__item-icon">📄</span>
+                                        Course Exercise / Reference Files
+                                    </div>
+                                    <img src="./assets/icons/lock.png">
                                 </li>
                                 <li class="collapsible__item locked">
-                                    <span class="collapsible__item-icon">📄</span>
-                                    Code Editor Installation (Optional if you have one)
-                                    <span class="collapsible__lock">🔒</span>
+                                    <div class="collapsible__item-left">
+                                        <span class="collapsible__item-icon">📄</span>
+                                        Code Editor Installation (Optional if you have one)
+                                    </div>
+                                    <img src="./assets/icons/lock.png">
                                 </li>
                                 <li class="collapsible__item">
-                                    <span class="collapsible__item-icon">📄</span>
-                                    Embedding PHP in HTML
+                                    <div class="collapsible__item-left">
+                                        <span class="collapsible__item-icon">📄</span>
+                                        Embedding PHP in HTML
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Comments Part -->
-        <div class="comments-part">
-            <div class="title-comp">Comments</div>
-            <!-- All Comments -->
-            <div class="comments">
-                <div class="comment">
-                    <div class="avatar">
-                        <img src="/assets/images/avatars/avatar1.jpg" alt="user avatar">
-                    </div>
-                    <div class="content">
-                        <div class="name">Student Name Goes Here</div>
-                        <span class="date">Oct 1, 2021</span>
-                        <p>Lorem Aime set Emet, erehtae Adecture Adfkjdddfjdkj ajdf j jka jdf jka jdfkj kjfkjadfkjdksf
-                            jajk jdlk jalkdfd</p>
+            <!-- Comments Part -->
+            <div class="comments-part">
+                <div class="title-comp">Comments</div>
+                <!-- All Comments -->
+                <div class="comments">
+                    <div class="comment">
+                        <div class="avatar">
+                            <img src="/assets/images/avatars/avatar2.png" alt="user avatar">
+                        </div>
+                        <div class="content">
+                            <div class="name">Student Name Goes Here</div>
+                            <span class="date">Oct 1, 2021</span>
+                            <p>Lorem Aime set Emet, erehtae Adecture Adfkjdddfjdkj ajdf j jka jdf jka jdfkj
+                                kjfkjadfkjdksf
+                                jajk jdlk jalkdfd</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Write Comment -->
-            <div class="write">
-                <textarea name="write-comment" placeholder="Write a comment"></textarea>
-            </div>
+                <!-- Write Comment -->
+                <div class="write">
+                    <textarea name="write-comment" placeholder="Write a comment"></textarea>
+                </div>
 
-            <!-- Submit Review -->
-            <button type="button">Submit Review
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined -->
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="1.5" d="M20 12H4m11 5s5-3.682 5-5s-5-5-5-5" color="currentColor" />
-                </svg>
-            </button>
+                <!-- Submit Review -->
+                <button type="button">Submit Review
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"><!-- Icon from Huge Icons by Hugeicons - undefined -->
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" d="M20 12H4m11 5s5-3.682 5-5s-5-5-5-5" color="currentColor" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </main>
 
+    <!-- Pop-up for "Ask a question" -->
+    <div id="ask-question-popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <button id="close-ask-popup" class="close-popup">×</button>
+                <h3>Ask a Question</h3>
+            </div>
+            <div class="popup-body">
+                <textarea placeholder="Type your question here..."></textarea>
+            </div>
+            <div class="popup-footer">
+                <button type="button" class="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up for "Leaderboard" -->
+    <div id="leaderboard-popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <button id="close-leaderboard-popup" class="close-popup">×</button>
+                <div class="titles">
+                    <h2>Course Name shown Here</h2>
+                    <h3>Leaderboard</h3>
+                    <div class="go">
+                        <p>عظيم يا صديقي.. أداءك في الكورس ده أفضل من 60% من باقي الطلبة.. كمل عايز أشوف أسمك في الليدر
+                            بورد هنا 👇</p>
+                        <img src="/assets/icons/leader.png">
+                    </div>
+                </div>
+            </div>
+            <div class="popup-body">
+                <div class="leaderboard-list">
+                    <!-- Leaderboard items will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Exam Popup -->
+    <div id="examPopup" class="examPopupClass">
+        <div class="popup-content">
+            <div class="popup-header">
+                <div class="top">
+                    <button id="closeExam" class="close"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"><!-- Icon from Material Design Light by Pictogrammers - https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md -->
+                            <path fill="currentColor"
+                                d="M14.41 18.16L8.75 12.5l5.66-5.66l.7.71l-4.95 4.95l4.95 4.95z" />
+                        </svg>
+                    </button>
+                    <div id="timer" class="timer"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                            <path fill="currentColor"
+                                d="M9.29 3.25L5.16 6.72L4 5.34l4.14-3.47zM22 5.35l-1.16 1.38l-4.14-3.48l1.16-1.38zM13 4a8 8 0 0 1 8 8a8 8 0 0 1-8 8a8 8 0 0 1-8-8a8 8 0 0 1 8-8m0 2a6 6 0 0 0-6 6a6 6 0 0 0 6 6a6 6 0 0 0 6-6a6 6 0 0 0-6-6m-1 1.5h1.5v4.53l3.22 1.47l-.62 1.36L12 13zM1 14c0-2.5 1.13-4.7 2.91-6.17A10 10 0 0 0 3 12l.06 1.13L3 14c0 2.28 1.27 4.26 3.14 5.28c1.3 1.22 2.93 2.11 4.75 2.5c-.61.14-1.24.22-1.89.22a8 8 0 0 1-8-8" />
+                        </svg>
+                        <span>0</span>
+                    </div>
+                </div>
+                <div id="statusBallsContainer" class="status">
+                </div>
+            </div>
+            <div class="popup-body">
+                <div class="mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slides will be dynamically added here -->
+                    </div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const swiperContainer = document.querySelector(".mySwiper");
+            if (swiperContainer) {
+                const swiper = new Swiper(swiperContainer, {
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    spaceBetween: 10,
+                    slidesPerView: 1.1,
+                    allowTouchMove: false, // Prevent swiping/pagination
+                });
+                initializeExamLogic(swiper)
+            } else {
+                console.error("Swiper container not found!");
+            }
+        });
+    </script>
 </body>
 
 </html>

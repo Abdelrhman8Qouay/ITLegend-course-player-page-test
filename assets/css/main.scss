@@ -1,28 +1,25 @@
 // 🔹 VARIABLES & MIXINS
-$primary-color: #007bff;
+$primary-color: #41b69d;
 $secondary-color: #6c757d;
 $bg-light: #f8f9fa;
-$text-dark: #212529;
+$text-dark: #25292e;
 $text-light: #6c757d;
 $text-red: #e54860;
-$border-radius: 8px;
+$text-blue: #080264;
+$border-radius: 6px;
 $s-padding: 1.5em;
 
-$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 
-@mixin flex-center($direction: row, $gap: 0) {
-    display: flex;
-    flex-direction: $direction;
-    align-items: center;
-    gap: $gap;
-}
+$md-less-screen: 746px;
 
 // 🔹 GLOBAL STYLES
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    font-size: clamp(0.5rem, 1.5vw, 1.2rem);
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: clamp(0.8rem, 1vw, 1.1rem);
     box-sizing: border-box;
 }
 
@@ -33,47 +30,103 @@ body {
 }
 
 @import './components/course-player';
+@import './components/section-services';
+@import './components/popups';
 @import './components/course-materials';
 @import './components/course-progress';
 @import './components/_available-resources.scss';
 @import './components/_comments-part.scss';
 
 
-// 🔹 CONTAINER & LAYOUT
+// ----------- CONTAINER & LAYOUT
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 30px auto;
 
-    .top-layout {
-        // Keeps the order same on small/medium screens
-        display: flex;
-        flex-direction: column;
+    .main-layout {
         width: 100%;
+        display: grid;
+        grid-template-areas:
+            "head-left right-side"
+            "comments right-side";
+        grid-template-columns: 4fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 5px;
 
-        // Change in the Large screens
-        @media (min-width: 1024px) {
-            flex-direction: row;
-            gap: 1em;
+        .head-left {
+            grid-area: head-left;
+        }
 
-            .right {
-                flex: 1 0 35%;
+        .right-side {
+            grid-area: right-side;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comments-part {
+            grid-area: comments;
+        }
+
+        @media (max-width: $md-less-screen) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+
+// ----------- Header
+header {
+    width: 100%;
+    height: max-content;
+    position: sticky;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 4px black;
+    background-color: $bg-light;
+    z-index: 1000;
+
+    .header-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.2em;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .logo {
+        width: 100px;
+
+        a {
+            text-decoration: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
     }
-
 }
 
-// 🔹 CHAIN LINKS
+
+// ----------- CHAIN LINKS
 .chain-links {
     display: flex;
     align-items: center;
 
-    content {
-        gap: 8px;
-        font-size: 12px;
-        color: $text-light;
-        margin-bottom: 20px;
+    gap: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $text-light;
+    margin-bottom: 20px;
+
+    span {
+        cursor: pointer;
     }
 
     .oper {
@@ -90,20 +143,20 @@ body {
     }
 
     .current {
-        color: $primary-color;
+        color: $text-dark;
     }
 }
 
-// 🔹 COURSE NAME
+// ----------- COURSE NAME
 .course-name {
-    font-size: 24px;
+    font-size: clamp(1.2rem, 4.8vw, 2rem);
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-// 🔹 TITLE COMPONENT
+// ----------- TITLE COMPONENT
 .title-comp {
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: clamp(0.8rem, 4vw, 1.6rem);
     font-weight: bold;
     margin-bottom: 20px;
 }

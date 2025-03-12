@@ -1,49 +1,54 @@
+$font_header: clamp(1.1rem, 1.4vw, 1.2rem);
+$font_title: clamp(1.1rem, 1.3vw, 1.3rem);
+$font_subtitle: clamp(1rem, 1.2vw, 1.3rem);
+$font_item: clamp(1rem, 1vw, 1.2rem);
+
 .collapsible {
-    width: 100%;
-    max-width: 400px;
+    width: max-content;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
-    font-family: Arial, sans-serif;
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 
     // Header Section
     &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         width: 100%;
         background: white;
         color: #333;
         padding: 16px;
         border: none;
         cursor: pointer;
-        font-size: 16px;
+        font-size: $font_header;
         text-align: left;
         transition: background 0.3s ease;
 
         &:hover {
             background: #f8f8f8;
         }
+
+        &-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
     &__title {
-        font-size: 18px;
+        font-size: $font_title;
         font-weight: bold;
         margin: 0;
     }
 
     &__subtitle {
-        font-size: 14px;
+        font-size: $font_subtitle;
         color: #777;
         margin-top: 4px;
     }
 
     &__icon {
-        font-size: 20px;
-        font-weight: bold;
+        font-size: $font_title;
         transition: transform 0.3s ease;
     }
 
@@ -67,7 +72,7 @@
         justify-content: space-between;
         padding: 12px 16px;
         border-bottom: 1px solid #eee;
-        font-size: 14px;
+        font-size: $font_item;
         cursor: pointer;
         transition: background 0.2s;
 
@@ -78,11 +83,16 @@
         &-icon {
             margin-right: 8px;
         }
+
+        img {
+            width: 18px;
+            height: 18px;
+            object-fit: cover;
+        }
     }
 
     // Lock Icon for Restricted Items
     .locked {
-        color: #bbb;
         cursor: not-allowed;
     }
 
@@ -94,21 +104,18 @@
     // Status Labels
     &__status {
         display: flex;
-        gap: 10px;
-        font-size: 12px;
+        flex-direction: column;
         font-weight: bold;
     }
 
     .status-green {
-        background: #e6f9e6;
         color: #4caf50;
         padding: 4px 8px;
         border-radius: 4px;
     }
 
     .status-red {
-        background: #fde8e8;
-        color: #e53935;
+        color: $text-red;
         padding: 4px 8px;
         border-radius: 4px;
     }

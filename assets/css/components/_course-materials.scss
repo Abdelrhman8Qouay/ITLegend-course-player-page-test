@@ -3,19 +3,24 @@
     padding: $s-padding;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
-    margin-bottom: 20px;
 
     .details {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 20px;
+        margin: 2em;
 
         .info {
             position: relative;
             display: flex;
+            flex: 0 0 45%;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             gap: 8px;
+
+            @media (max-width: $md-less-screen) {
+                flex: 1 0 45%;
+            }
 
             .left {
                 display: flex;
@@ -28,13 +33,11 @@
                 }
 
                 .title {
-                    font-size: clamp(0.5rem, 1.2vw, 1.2rem);
                     color: $text-light;
                 }
             }
 
             .val {
-                font-size: clamp(0.5rem, 1.2vw, 1.2rem);
                 color: $text-dark;
             }
 
